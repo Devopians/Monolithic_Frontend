@@ -4,7 +4,7 @@ import { Button, TextField, Container, Typography, Card, CardContent, IconButton
 import { Delete } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
-const API_BASE_URL = 'http://52.146.33.135:8000';
+const API_BASE_URL = 'veer-mono-webapp-etbjh6anareggvfq.francecentral-01.azurewebsites.net';
 
 const backgroundImage = process.env.PUBLIC_URL + '/background.jpg';
 
