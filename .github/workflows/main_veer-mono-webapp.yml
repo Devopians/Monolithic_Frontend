@@ -60,11 +60,12 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'veer-mono-webapp'
+          app-name: 'veer-webapp-frontend'
           slot-name: 'Production'
           package: .
 
           
+
 
 
 
