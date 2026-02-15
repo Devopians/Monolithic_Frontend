@@ -4,7 +4,7 @@ import { Button, TextField, Container, Typography, Card, CardContent, IconButton
 import { Delete } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
-const API_BASE_URL = 'veer-webapp-backend.azurewebsites.net';
+const API_BASE_URL = 'https://veer-webapp-frontend.azurewebsites.net/api';
 
 const backgroundImage = process.env.PUBLIC_URL + '/background.jpg';
 
