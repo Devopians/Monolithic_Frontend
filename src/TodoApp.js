@@ -4,7 +4,8 @@ import { Button, TextField, Container, Typography, Card, CardContent, IconButton
 import { Delete } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
-const API_BASE_URL = 'https://veer-webapp-frontend.azurewebsites.net/api';
+// ✅ FIXED BASE URL (added /api)
+const API_BASE_URL = 'https://veer-webapp-backend.azurewebsites.net/api';
 
 const backgroundImage = process.env.PUBLIC_URL + '/background.jpg';
 
@@ -47,10 +48,10 @@ function TodoApp() {
     return (
         <Box
             style={{
-                backgroundImage: `url(${backgroundImage})`, // Use the imported variable
+                backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed', // Optional, for a fixed background
+                backgroundAttachment: 'fixed',
                 minHeight: '100vh',
             }}
         >
@@ -59,14 +60,15 @@ function TodoApp() {
                     variant="h3"
                     gutterBottom
                     style={{
-                        textAlign: 'center', // Center align text
-                        color: 'white', // Set text color to white
+                        textAlign: 'center',
+                        color: 'white',
                         margin: '8px',
                     }}
                 >
                     <img src="/devopsinsiderslogo.png" alt="My Logo" />
                     ToDo App
                 </Typography>
+
                 <div>
                     <TextField
                         label="Title"
@@ -76,20 +78,8 @@ function TodoApp() {
                         value={newTask.title}
                         margin="normal"
                         onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-                        InputProps={{
-                            style: {
-                                color: 'white',       // Set text color to white
-                                borderColor: 'white',  // Set border color to white
-                                '&:hover': {
-                                    borderColor: 'white', // Set border color to white on hover
-                                },
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: 'white',       // Set label text color to white
-                            },
-                        }}
+                        InputProps={{ style: { color: 'white' } }}
+                        InputLabelProps={{ style: { color: 'white' } }}
                     />
 
                     <TextField
@@ -101,20 +91,8 @@ function TodoApp() {
                         value={newTask.description}
                         margin="normal"
                         onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-                        InputProps={{
-                            style: {
-                                color: 'white',           // Set text color to white
-                                borderColor: 'white',      // Set border color to white
-                                '&:hover': {
-                                    borderColor: 'white',    // Set border color to white on hover
-                                },
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: 'white',           // Set label text color to white
-                            },
-                        }}
+                        InputProps={{ style: { color: 'white' } }}
+                        InputLabelProps={{ style: { color: 'white' } }}
                     />
 
                     <Button variant="contained" color="primary" onClick={createTask} style={{ margin: '8px' }}>
@@ -127,31 +105,10 @@ function TodoApp() {
                         variant="h4"
                         gutterBottom
                         style={{
-                            textAlign: 'center', // Center align text
-                            color: 'white', // Set text color to white
+                            textAlign: 'center',
+                            color: 'white',
                             margin: '15px',
                         }}
                     >
                         Existing Tasks
                     </Typography>
-
-                    {tasks.map((task) => (
-                        <Box key={task.ID} mb={2}>
-                            <Card key={task.ID} variant="elevation">
-                                <CardContent>
-                                    <Typography variant="h6">{task.Title}</Typography>
-                                    <Typography variant="body2">{task.Description}</Typography>
-                                    <IconButton onClick={() => deleteTask(task.ID)} color="secondary">
-                                        <Delete />
-                                    </IconButton>
-                                </CardContent>
-                            </Card>
-                        </Box>
-                    ))}
-                </div>
-            </Container>
-        </Box>
-    );
-}
-
-export default TodoApp;
